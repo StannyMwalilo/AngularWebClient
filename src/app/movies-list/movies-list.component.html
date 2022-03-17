@@ -1,0 +1,53 @@
+<h1>MOVIES LIST PAGE</h1>
+ 
+ <!-- <input type="search" placeholder="Search" [(ngModel)]="movieSearchCriteria">
+  <button button type="button" class="btn btn-primary form-control" (click)="nestedSearch()">Search</button>
+ -->
+<button type="button" class="btn btn-primary" (click)="openAComponentToAddNewMovie()" >Add a New Movie</button>
+
+
+<div class="input-group mb-3">
+  <input [(ngModel)]="movieSearchCriteria.title"type="text"  class="form-control" placeholder="Title" aria-label="Title">  
+  <input [(ngModel)]="movieSearchCriteria.genres" type="text" class="form-control" placeholder="Genres" aria-label="Genres">
+  <input [(ngModel)]="movieSearchCriteria.year" type="number" class="form-control" placeholder="Year" aria-label="Year">  
+  <input [(ngModel)]="movieSearchCriteria.actors" type="text" class="form-control" placeholder="Actors" aria-label="Actors">
+  <input [(ngModel)]="movieSearchCriteria.director" type="text" class="form-control" placeholder="Director" aria-label="Director">
+  <button type="button" class="btn btn-primary form-control" (click)="SearchMovies()" >Search Movies</button>
+</div>
+
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Year</th>
+      <th scope="col">Genres</th>
+      <th scope="col">Directors</th>
+      <th scope="col">Actors</th>
+      <th scope="col">Runtime</th>
+      <th scope="col">Plot</th>
+      <th scope="col">PosterUrl</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of myMovies">
+      <th >{{m.id}}</th>
+      <td>{{m.title}}</td>
+      <td>{{m.year}}</td>
+      <td>{{m.genres}}</td>
+      <td>{{m.director}}</td>
+      <td>{{m.actors}}</td>
+      <td>{{m.runtime}}</td>
+      <td>{{m.plot}}</td>
+      <td>{{m.posterUrl}}</td>
+      <td>
+      <button type="button" class="btn btn-primary" (click)="movieToDelete(m)" >Delete</button>
+      <button type="button" class="btn btn-primary" (click)="editMovie(m)" >Edit</button>
+      </td>
+    </tr>
+   
+  </tbody>
+</table>

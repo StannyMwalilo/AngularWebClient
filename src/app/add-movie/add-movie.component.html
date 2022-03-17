@@ -1,0 +1,12 @@
+<h1 *ngIf="!isEditingMovie">ADDING A NEW MOVIE</h1>
+<h1 *ngIf="isEditingMovie">EDITING MOVIE</h1>
+
+<div class="input-group mb-3">
+    <input [(ngModel)]="movieToAdd.title" type="text"  class="form-control" placeholder="Title" aria-label="Title">  
+    <input [(ngModel)]="movieToAdd.genres" type="text" class="form-control" placeholder="Genres" aria-label="Genres">
+    <input [(ngModel)]="movieToAdd.year" type="number" class="form-control" placeholder="Year" aria-label="Year">  
+    <input [(ngModel)]="movieToAdd.actors" type="text" class="form-control" placeholder="Actors" aria-label="Actors">
+    <input [(ngModel)]="movieToAdd.director" type="text" class="form-control" placeholder="Director" aria-label="Director">
+    <button *ngIf="!isEditingMovie" type="button" class="btn btn-primary form-control" (click)="AddNewMovie()" >Add New Movies</button>
+    <button *ngIf="isEditingMovie" type="button" class="btn btn-primary form-control" (click)="UpdateMovie()" >Update Movies</button>
+  </div>
